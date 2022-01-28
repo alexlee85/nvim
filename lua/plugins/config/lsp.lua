@@ -5,61 +5,51 @@ local nvim_lsp = require("lspconfig")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-local servers = {
-    "sumneko_lua", "tsserver"
-}
+local servers = {"sumneko_lua", "tsserver"}
 
 for _, server_name in ipairs(servers) do
-    nvim_lsp[server_name].setup {
-        capabilities = capabilities,
-        settings = {
-            Lua = {
-                cmd = {"lua-language-server"},
-                filetypes = {"lua"},
-                runtime = {
-                    version = "LuaJIT",
-                    path = vim.split(package.path, ";")
-                },
-                completion = {enable = true, callSnippet = "Both"},
-                diagnostics = {
-                    enable = true,
-                    globals = {"vim", "describe"},
-                    disable = {"lowercase-global"}
-                },
-                workspace = {
-                    library = {
-                        vim.api.nvim_get_runtime_file("", true),
-                        [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                        [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-                    },
-                    -- adjust these two values if your performance is not optimal
-                    maxPreload = 2000,
-                    preloadFileSize = 1000
-                },
-                telemetry = {enable = false}
-            },
-        }
+  nvim_lsp[server_name].setup {
+    capabilities = capabilities,
+    settings = {
+      Lua = {
+        cmd = {"lua-language-server"},
+        filetypes = {"lua"},
+        runtime = {version = "LuaJIT", path = vim.split(package.path, ";")},
+        completion = {enable = true, callSnippet = "Both"},
+        diagnostics = {
+          enable = true,
+          globals = {"vim", "describe"},
+          disable = {"lowercase-global"}
+        },
+        workspace = {
+          library = {
+            vim.api.nvim_get_runtime_file("", true),
+            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+            [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+          },
+          -- adjust these two values if your performance is not optimal
+          maxPreload = 2000,
+          preloadFileSize = 1000
+        },
+        telemetry = {enable = false}
+      }
     }
+  }
 end
 
 require('rust-tools').setup({
-    tools = {
-        autoSetHints = false,
-    },
-    crate_graph = {
-        backend = "dot",
-    }
+  tools = {autoSetHints = false},
+  crate_graph = {backend = "dot"}
 })
 
-
 require("lsp_signature").setup({
-    bind = true, -- This is mandatory, otherwise border config won't get registered.
-    floating_window = true, -- show hint in a floating window, set to false for virtual text only mode
-    doc_lines = 2, -- Set to 0 for not showing doc
-    hint_prefix = "💡 ",
-    max_width = 100,
-    -- use_lspsaga = false,  -- set to true if you want to use lspsaga popup
-    handler_opts = {
-        border = "rounded" -- rounded, double, single, shadow, none
-    }
+  bind = true, -- This is mandatory, otherwise border config won't get registered.
+  floating_window = true, -- show hint in a floating window, set to false for virtual text only mode
+  doc_lines = 2, -- Set to 0 for not showing doc
+  hint_prefix = "💡 ",
+  max_width = 100,
+  -- use_lspsaga = false,  -- set to true if you want to use lspsaga popup
+  handler_opts = {
+    border = "rounded" -- rounded, double, single, shadow, none
+  }
 })
