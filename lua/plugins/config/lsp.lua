@@ -19,27 +19,27 @@ for _, server_name in ipairs(servers) do
         diagnostics = {
           enable = true,
           globals = {"vim", "describe"},
-          disable = {"lowercase-global"}
+          disable = {"lowercase-global"},
         },
         workspace = {
           library = {
             vim.api.nvim_get_runtime_file("", true),
             [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-            [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+            [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
           },
           -- adjust these two values if your performance is not optimal
           maxPreload = 2000,
-          preloadFileSize = 1000
+          preloadFileSize = 1000,
         },
-        telemetry = {enable = false}
-      }
-    }
+        telemetry = {enable = false},
+      },
+    },
   }
 end
 
-require('rust-tools').setup({
+require("rust-tools").setup({
   tools = {autoSetHints = false},
-  crate_graph = {backend = "dot"}
+  crate_graph = {backend = "dot"},
 })
 
 require("lsp_signature").setup({
@@ -50,6 +50,6 @@ require("lsp_signature").setup({
   max_width = 100,
   -- use_lspsaga = false,  -- set to true if you want to use lspsaga popup
   handler_opts = {
-    border = "rounded" -- rounded, double, single, shadow, none
-  }
+    border = "rounded", -- rounded, double, single, shadow, none
+  },
 })
