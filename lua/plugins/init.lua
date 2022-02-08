@@ -70,6 +70,7 @@ use {
 }
 use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
 
+use {"hrsh7th/vim-vsnip"}
 use {
   "hrsh7th/nvim-cmp",
   requires = {
@@ -80,6 +81,7 @@ use {
     {"hrsh7th/cmp-vsnip"},
     {"f3fora/cmp-spell", {"hrsh7th/cmp-calc"}},
   },
+  after = "vim-vsnip",
   config = get_config("cmp"),
 }
 
