@@ -5,37 +5,45 @@ local nvim_lsp = require("lspconfig")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-local servers = {"sumneko_lua", "tsserver"}
-
-for _, server_name in ipairs(servers) do
-  nvim_lsp[server_name].setup {
-    capabilities = capabilities,
-    settings = {
-      Lua = {
-        cmd = {"lua-language-server"},
-        filetypes = {"lua"},
-        runtime = {version = "LuaJIT", path = vim.split(package.path, ";")},
-        completion = {enable = true, callSnippet = "Both"},
-        diagnostics = {
-          enable = true,
-          globals = {"vim", "describe"},
-          disable = {"lowercase-global"},
-        },
-        workspace = {
-          library = {
-            vim.api.nvim_get_runtime_file("", true),
-            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-            [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-          },
-          -- adjust these two values if your performance is not optimal
-          maxPreload = 2000,
-          preloadFileSize = 1000,
-        },
-        telemetry = {enable = false},
+nvim_lsp.sumneko_lua.setup {
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      cmd = {"lua-language-server"},
+      filetypes = {"lua"},
+      runtime = {version = "LuaJIT", path = vim.split(package.path, ";")},
+      completion = {enable = true, callSnippet = "Both"},
+      diagnostics = {
+        enable = true,
+        globals = {"vim", "describe"},
+        disable = {"lowercase-global"},
       },
+      workspace = {
+        library = {
+          vim.api.nvim_get_runtime_file("", true),
+          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+          [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+        },
+        -- adjust these two values if your performance is not optimal
+        maxPreload = 2000,
+        preloadFileSize = 1000,
+      },
+      telemetry = {enable = false},
     },
-  }
-end
+  },
+}
+
+nvim_lsp.tsserver.setup {
+  capabilities = capabilities,
+  root_dir = nvim_lsp.util.root_pattern("package.json"),
+  init_options = {lint = true},
+}
+
+nvim_lsp.denols.setup {
+  capabilities = capabilities,
+  root_dir = nvim_lsp.util.root_pattern("deno.json"),
+  init_options = {lint = true},
+}
 
 require("rust-tools").setup({
   tools = {autoSetHints = false},
