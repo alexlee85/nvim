@@ -45,6 +45,8 @@ nvim_lsp.denols.setup {
   init_options = {lint = true},
 }
 
+nvim_lsp.gopls.setup {}
+
 require("rust-tools").setup({
   tools = {autoSetHints = false},
   crate_graph = {backend = "dot"},

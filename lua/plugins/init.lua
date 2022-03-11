@@ -113,6 +113,8 @@ function M.setup()
     end,
   }
 
+  use {"fatih/vim-go", run = ":GoUpdateBinaries"}
+
   use {
     "neovim/nvim-lspconfig",
     requires = {{"rust-lang/rust.vim"}, {"simrat39/rust-tools.nvim"}},
