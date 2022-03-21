@@ -50,4 +50,7 @@ vim.g["airline#extensions#tabline#enabled"] = 1
 vim.g["airline#extensions#tabline#buffer_nr_show"] = 1
 vim.g["airline#extensions#tabline#formatter"] = "unique_tail_improved"
 vim.g["airline#extensions#tabline#fnamemod"] = ":t"
+
 vim.g.rustfmt_autosave = 1
+
+vim.g.go_doc_popup_window = 1
