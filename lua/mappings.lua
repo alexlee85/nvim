@@ -13,7 +13,7 @@ map("n", "<leader>wl", "<C-w>l", default_options)
 map("n", "<leader>ww", "<C-w>w", default_options)
 
 -- Toggle Term
-map("n", "<leader>;", "<cmd>ToggleTerm<cr>", default_options)
+map("n", "<leader>;", "<cmd>ToggleTerm direction=float<cr>", default_options)
 
 -- Telescope
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", default_options)
