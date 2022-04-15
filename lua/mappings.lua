@@ -23,6 +23,8 @@ map("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>", default_options)
 map("n", "<leader>fi", "<cmd>Telescope lsp_implementations<cr>", default_options)
 map("n", "<leader>fc", "<cmd>Telescope lsp_code_actions<cr>", default_options)
 
+map("n", "<leader>nt", "<cmd>NvimTreeToggle<cr>", default_options)
+
 map("n", "<leader>sq", "<cmd>lua require('rest-nvim').run()<CR>", default_options)
 
 -- LSP

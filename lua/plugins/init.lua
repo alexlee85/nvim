@@ -66,6 +66,20 @@ function M.setup()
 
   use {"kyazdani42/nvim-web-devicons", config = get_config("web-devicons")}
 
+  -- use {
+  --   "akinsho/bufferline.nvim",
+  --   tag = "*",
+  --   requires = "kyazdani42/nvim-web-devicons",
+  --   config = get_config("bufferline"),
+  -- }
+
+  -- use {
+  --   "nvim-lualine/lualine.nvim",
+  --   requires = {"kyazdani42/nvim-web-devicons", opt = true},
+  --   config = function()
+  --     require("lualine").setup {options = {theme = "gruvbox"}}
+  --   end,
+  -- }
   use "vim-airline/vim-airline"
   use "vim-airline/vim-airline-themes"
 
@@ -77,7 +91,12 @@ function M.setup()
       "kyazdani42/nvim-web-devicons", -- optional, for file icon
     },
     config = function()
-      require"nvim-tree".setup {}
+      require"nvim-tree".setup {
+        open_on_setup = false,
+        open_on_setup_file = false,
+        view = {side = "left", width = 40, preserve_window_proportions = true},
+        open_file = {resize_window = false},
+      }
     end,
   }
 
