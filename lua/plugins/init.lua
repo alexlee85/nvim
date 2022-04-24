@@ -95,7 +95,6 @@ function M.setup()
         open_on_setup = false,
         open_on_setup_file = false,
         view = {side = "left", width = 40, preserve_window_proportions = true},
-        open_file = {resize_window = false},
       }
     end,
   }
