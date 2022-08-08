@@ -33,6 +33,8 @@ nvim_lsp.sumneko_lua.setup {
   },
 }
 
+require"lspconfig".solc.setup {}
+
 nvim_lsp.tsserver.setup {
   capabilities = capabilities,
   root_dir = nvim_lsp.util.root_pattern("package.json"),

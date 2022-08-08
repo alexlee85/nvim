@@ -24,6 +24,7 @@ opt.number = true
 opt.relativenumber = true
 opt.wildmode = {"longest", "list"}
 opt.colorcolumn = {100}
+opt.guifont = "Hack Nerd Font:12"
 
 opt.list = true
 opt.listchars:append("space:⋅")
