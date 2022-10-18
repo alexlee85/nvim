@@ -50,7 +50,14 @@ nvim_lsp.denols.setup {
 nvim_lsp.gopls.setup {}
 
 require("rust-tools").setup({
-  tools = {autoSetHints = false},
+  tools = {
+    inlay_hints = {
+      auto = true,
+      only_current_line = false,
+      max_len_align = false,
+      max_len_align_padding = 1,
+    },
+  },
   crate_graph = {backend = "dot"},
 })
 
