@@ -129,6 +129,17 @@ function M.setup()
     run = ":TSUpdate",
   }
 
+  require("orgmode").setup_ts_grammar()
+  use {
+    "nvim-orgmode/orgmode",
+    config = function()
+      require("orgmode").setup {
+        org_agenda_files = {"~/Documents/orgs/**/*"},
+        org_default_notes_file = "~/Documents/orgs/work.org",
+      }
+    end,
+  }
+
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",

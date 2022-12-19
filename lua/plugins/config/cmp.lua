@@ -53,6 +53,7 @@ cmp.setup({
     ["<CR>"] = cmp.mapping.confirm({select = true}),
   }),
   sources = cmp.config.sources({
+    {name = "orgmode"},
     {name = "nvim_lsp"},
     {name = "vsnip"}, -- For vsnip users.
     -- { name = 'luasnip' }, -- For luasnip users.

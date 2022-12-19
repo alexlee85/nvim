@@ -13,7 +13,11 @@ map("n", "<leader>wl", "<C-w>l", default_options)
 map("n", "<leader>ww", "<C-w>w", default_options)
 
 -- Toggle Term
-map("n", "<leader>;", "<cmd>ToggleTerm direction=float<cr>", default_options)
+map("n", "tf", "<cmd>ToggleTerm direction=float<cr>", default_options)
+map("n", "tv", "<cmd>ToggleTerm direction=vertical<cr>", default_options)
+map("n", "th", "<cmd>ToggleTerm direction=horizontal<cr>", default_options)
+-- Trouble
+map("n", "<leader>tt", "<cmd>TroubleToggle<CR>", default_options)
 
 -- Telescope
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", default_options)
@@ -32,6 +36,3 @@ map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", default_options)
 map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", default_options)
 map("n", "cn", "<cmd>lua vim.lsp.buf.rename()<CR>", default_options)
 map("n", "cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", default_options)
-
--- Trouble
-map("n", "<leader>tt", "<cmd>TroubleToggle<CR>", default_options)
