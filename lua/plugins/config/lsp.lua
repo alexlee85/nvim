@@ -59,6 +59,7 @@ require("rust-tools").setup({
       locationLinks = false,
     },
   },
+  server = {settings = {["rust-analyzer"] = {inlayHints = {locationLinks = false}}}},
   crate_graph = {backend = "dot"},
 })
 
