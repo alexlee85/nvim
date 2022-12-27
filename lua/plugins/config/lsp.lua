@@ -56,19 +56,11 @@ require("rust-tools").setup({
       only_current_line = false,
       max_len_align = false,
       max_len_align_padding = 1,
+      locationLinks = false,
     },
   },
   crate_graph = {backend = "dot"},
 })
 
--- require("lsp_signature").setup({
---   bind = true, -- This is mandatory, otherwise border config won't get registered.
---   floating_window = true, -- show hint in a floating window, set to false for virtual text only mode
---   doc_lines = 2, -- Set to 0 for not showing doc
---   hint_prefix = "💡 ",
---   max_width = 100,
---   -- use_lspsaga = false,  -- set to true if you want to use lspsaga popup
---   handler_opts = {
---     border = "rounded", -- rounded, double, single, shadow, none
---   },
--- })
+require("mason").setup()
+require("mason-lspconfig").setup()

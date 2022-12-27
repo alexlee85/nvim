@@ -129,7 +129,6 @@ function M.setup()
     run = ":TSUpdate",
   }
 
-  require("orgmode").setup_ts_grammar()
   use {
     "nvim-orgmode/orgmode",
     config = function()
@@ -139,6 +138,8 @@ function M.setup()
       }
     end,
   }
+
+  require("orgmode").setup_ts_grammar()
 
   use {
     "folke/trouble.nvim",
@@ -159,6 +160,8 @@ function M.setup()
     requires = {{"rust-lang/rust.vim"}, {"simrat39/rust-tools.nvim"}},
     config = get_config("lsp"),
   }
+
+  use {"williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim"}
 
   use {
     "NTBBloodbath/rest.nvim",

@@ -1,4 +1,20 @@
 require("nvim-treesitter.configs").setup {
+  ensure_installed = {
+    "c",
+    "cpp",
+    "lua",
+    "html",
+    "css",
+    "scss",
+    "json",
+    "javascript",
+    "typescript",
+    "org",
+    "sql",
+    "bash",
+    "go",
+    "rust",
+  },
   highlight = {
     enable = true,
     custom_captures = {
@@ -11,5 +27,4 @@ require("nvim-treesitter.configs").setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = {"org"},
   },
-  ensure_installed = {"org"},
 }
