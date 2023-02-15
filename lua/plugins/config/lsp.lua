@@ -5,7 +5,7 @@ local nvim_lsp = require("lspconfig")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-nvim_lsp.sumneko_lua.setup {
+nvim_lsp.lua_ls.setup {
   capabilities = capabilities,
   settings = {
     Lua = {
@@ -34,6 +34,23 @@ nvim_lsp.sumneko_lua.setup {
 }
 
 require"lspconfig".solc.setup {}
+require"lspconfig".volar.setup {
+  init_options = {
+    typescript = {
+      tsdk = "/Users/alex/Library/Caches/fnm_multishells/26410_1672194854781/lib/node_modules/typescript/lib",
+      -- Alternative location if installed as root:
+      -- tsdk = '/usr/local/lib/node_modules/typescript/lib'
+    },
+  },
+  filetypes = {
+    "typescript",
+    "javascript",
+    "javascriptreact",
+    "typescriptreact",
+    "vue",
+    "json",
+  },
+}
 
 nvim_lsp.tsserver.setup {
   capabilities = capabilities,

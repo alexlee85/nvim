@@ -26,6 +26,7 @@ map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", default_options)
 map("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>", default_options)
 map("n", "<leader>fi", "<cmd>Telescope lsp_implementations<cr>", default_options)
 map("n", "<leader>fc", "<cmd>Telescope lsp_code_actions<cr>", default_options)
+map("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", default_options)
 
 map("n", "<leader>nt", "<cmd>NvimTreeToggle<cr>", default_options)
 
