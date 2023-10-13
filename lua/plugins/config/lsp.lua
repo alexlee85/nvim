@@ -37,7 +37,7 @@ require"lspconfig".solc.setup {}
 require"lspconfig".volar.setup {
   init_options = {
     typescript = {
-      tsdk = "/Users/alex/Library/Caches/fnm_multishells/26410_1672194854781/lib/node_modules/typescript/lib",
+      tsdk = "/Users/alex/Library/Caches/fnm_multishells/31790_1695264071086/lib/node_modules/typescript/lib",
       -- Alternative location if installed as root:
       -- tsdk = '/usr/local/lib/node_modules/typescript/lib'
     },
