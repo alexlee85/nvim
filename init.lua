@@ -1,4 +1,2 @@
--- neovim config
-require("plugins").setup()
-require("options")
-require("mappings")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
