@@ -5,3 +5,4 @@
 local keymap = vim.keymap.set
 
 keymap("v", "p", "pgvy")
+keymap("n", "<leader>md", "<cmd>MarkdownPreviewToggle<cr>")
