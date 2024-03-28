@@ -1,12 +1,10 @@
 return {
   "nvim-neotest/neotest",
   optional = true,
-  dependencies = {
-    "rouge8/neotest-rust",
-  },
-  opts = {
-    adapters = {
-      ["neotest-rust"] = {},
-    },
-  },
+  opts = function(_, opts)
+    opts.adapters = opts.adapters or {}
+    vim.list_extend(opts.adapters, {
+      require("rustaceanvim.neotest"),
+    })
+  end,
 }

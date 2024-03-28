@@ -4,6 +4,15 @@ return {
     "L3MON4D3/LuaSnip",
     "hrsh7th/cmp-emoji",
     { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+    {
+      "Saecki/crates.nvim",
+      event = { "BufRead Cargo.toml" },
+      opts = {
+        src = {
+          cmp = { enabled = true },
+        },
+      },
+    },
   },
   opts = function(_, opts)
     -- original LazyVim kind icon formatter
